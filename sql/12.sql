@@ -18,5 +18,5 @@ JOIN LATERAL (
     LIMIT 5
 ) AS recent_rentals ON true
 GROUP BY c.customer_id, c.first_name, c.last_name
-HAVING count(*) FILTER (WHERE category = 'Action') >= 4
+HAVING count(*) FILTER (WHERE category = 'Action') >= 3
 ORDER BY c.customer_id;

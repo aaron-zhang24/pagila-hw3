@@ -23,4 +23,4 @@ JOIN LATERAL (
     ORDER BY rental_date DESC
     LIMIT 1
 ) AS recent_rentals ON true
-ORDER BY c.last_name, c.first_name;
+ORDER BY c.last_name, c.first_name, c.customer_id;
