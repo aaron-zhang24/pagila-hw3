@@ -14,9 +14,9 @@ JOIN LATERAL (
     JOIN film_category fc ON (i.film_id = fc.film_id)
     JOIN category ca ON (ca.category_id = fc.category_id)
     WHERE r.customer_id = c.customer_id
-    ORDER BY rental_date DESC
+    ORDER BY rental_date DESC, r.rental_id DESC
     LIMIT 5
 ) AS recent_rentals ON true
 GROUP BY c.customer_id, c.first_name, c.last_name
-HAVING count(*) FILTER (WHERE category = 'Action') >= 3
+HAVING count(*) FILTER (WHERE category = 'Action') >= 4
 ORDER BY c.customer_id;
