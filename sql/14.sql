@@ -18,7 +18,7 @@ JOIN LATERAL (
     JOIN rental r ON (r.inventory_id = i.inventory_id)
     WHERE c.category_id = fc.category_id
     GROUP BY f.title, f.film_id
-    ORDER BY "total rentals" DESC, f.title ASC
+    ORDER BY "total rentals" DESC, f.film_id DESC
     LIMIT 5 
 ) AS rentals ON true
 ORDER BY c.name, rentals."total rentals" DESC, rentals.title;
